@@ -34,7 +34,7 @@ library(ggmap)
 # 試繪台灣地圖
 ```{r}
 # left, bottom, right, top代表經緯度
-taiwan <- c(left = 119.4, bottom = 21.8, right = 122.1, top = 25.3)
+taiwan <- c(left = 118.25, bottom = 21.8, right = 122.2, top = 26.25)
 # 選擇縮放大小為8,"terrain"地形圖
 map <- get_stamenmap(taiwan, zoom = 8, maptype = "terrain")
 ggmap(map)
