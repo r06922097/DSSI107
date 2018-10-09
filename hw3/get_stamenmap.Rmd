@@ -1,0 +1,43 @@
+---
+title: "解決Google Map無法使用問題"
+author: "鄭雅文"
+output: 
+  html_notebook:
+    toc: true
+---
+因為Google Map[新的policy](https://cloud.google.com/maps-platform/terms/)使得API呼叫地圖受到限制，根據[ggmap的source code](https://github.com/dkahle/ggmap)得知其實ggmap不只支援Google Map一種地圖套件，因此本篇試著用[Stamen Maps](http://maps.stamen.com/)解決存取台灣地圖問題。
+
+# download最新ggmap套件
+要從github上下載最新的ggmap套件(v2.7)，才不會在之後發生`"Error in readJPEG(tmp): JPEG decompression error: Not a JPEG file"`
+但用`install.packages('ggmap')`最新只能載到v2.6
+```{r}
+install.packages('devtools')
+devtools::install_github("dkahle/ggmap")
+```
+# 重新開啟Rstudio
+重新整理Rstudio，引入ggmap時才不會發生錯誤
+```{r}
+.rs.restartR()
+```
+# 引入library
+```{r}
+library(ggplot2)
+library(ggmap)
+```
+
+# 試繪台灣地圖
+```{r}
+# left, bottom, right, top代表經緯度
+taiwan <- c(left = 119.4, bottom = 21.8, right = 122.1, top = 25.3)
+# 選擇縮放大小為8,"terrain"地形圖
+map <- get_stamenmap(taiwan, zoom = 8, maptype = "terrain")
+ggmap(map)
+```
+# Reference
+
+* https://github.com/dkahle/ggmap
+
+* https://github.com/dkahle/ggmap/issues/107
+
+* https://stackoverflow.com/questions/30424608/error-in-fetchkey-lazy-load-database
+
