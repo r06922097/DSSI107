@@ -7,6 +7,12 @@ output:
 ---
 因為Google Map[新的policy](https://cloud.google.com/maps-platform/terms/)使得API呼叫地圖受到限制，根據[ggmap的source code](https://github.com/dkahle/ggmap)得知其實ggmap不只支援Google Map一種地圖套件，因此本篇試著用[Stamen Maps](http://maps.stamen.com/)解決存取台灣地圖問題。
 
+# 下載RMD程式碼
+
+* https://github.com/r06922097/DSSI107
+
+也可以複製本文程式碼到自己的Rstudio執行
+
 # download最新ggmap套件
 要從github上下載最新的ggmap套件(v2.7)，才不會在之後發生`"Error in readJPEG(tmp): JPEG decompression error: Not a JPEG file"`
 但用`install.packages('ggmap')`最新只能載到v2.6
